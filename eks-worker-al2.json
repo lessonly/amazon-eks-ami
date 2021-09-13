@@ -32,7 +32,7 @@
     "security_group_id": "",
     "associate_public_ip_address": "true",
     "remote_folder": "",
-    "launch_block_device_mappings_volume_size": "4",
+    "launch_block_device_mappings_volume_size": "6",
     "ami_users": "736980385428,371750428594,832568320175,479474490486,005556125985,920179101245,470222443941,134813580289" ,
     "additional_yum_repos": "",
     "sonobuoy_e2e_registry": ""
@@ -71,7 +71,7 @@
         {
           "device_name": "/dev/xvda",
           "volume_type": "gp2",
-          "volume_size": 20,
+          "volume_size": 22,
           "delete_on_termination": true
         }
       ],
