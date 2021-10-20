@@ -35,7 +35,8 @@
     "launch_block_device_mappings_volume_size": "6",
     "ami_users": "736980385428,371750428594,832568320175,479474490486,005556125985,920179101245,470222443941,134813580289" ,
     "additional_yum_repos": "",
-    "sonobuoy_e2e_registry": ""
+    "sonobuoy_e2e_registry": "",
+    "rapid7_token": "{{env `RAPID7_TOKEN`}}"
   },
   "builders": [
     {
@@ -161,7 +162,8 @@
         "AWS_SECRET_ACCESS_KEY={{user `aws_secret_access_key`}}",
         "AWS_SESSION_TOKEN={{user `aws_session_token`}}",
         "CLEANUP_IMAGE={{user `cleanup_image`}}",
-        "SONOBUOY_E2E_REGISTRY={{user `sonobuoy_e2e_registry`}}"
+        "SONOBUOY_E2E_REGISTRY={{user `sonobuoy_e2e_registry`}}",
+        "RAPID7_TOKEN={{user `rapid7_token`}}"
       ]
     },
     {
