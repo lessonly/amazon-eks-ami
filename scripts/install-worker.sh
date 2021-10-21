@@ -316,8 +316,8 @@ sudo sh ./inspector_install.sh
 ################################################################################
 
 # https://docs.rapid7.com/insight-agent/using-a-token
-chmod u+x /rapid7/agent_installer.sh
-sudo /rapid7/agent_installer.sh install --token us:$RAPID7_TOKEN
+chmod u+x  /tmp/lessonly/agent_installer.sh
+sudo  /tmp/lessonly/agent_installer.sh install --token us:$RAPID7_TOKEN
 # https://docs.rapid7.com/insight-agent/virtualization/
 rm -rf /opt/rapid7/ir_agent/components/bootstrap/common/bootstrap.cfg
 
