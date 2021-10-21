@@ -317,6 +317,7 @@ sudo sh ./inspector_install.sh
 
 # https://docs.rapid7.com/insight-agent/using-a-token
 chmod u+x  /tmp/lessonly/agent_installer.sh
+echo RAPID7_TOKEN us:$RAPID7_TOKEN
 sudo  /tmp/lessonly/agent_installer.sh install --token us:$RAPID7_TOKEN
 # https://docs.rapid7.com/insight-agent/virtualization/
 rm -rf /opt/rapid7/ir_agent/components/bootstrap/common/bootstrap.cfg
