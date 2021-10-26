@@ -321,16 +321,6 @@ sudo  /tmp/lessonly/agent_installer.sh install --token us:$RAPID7_TOKEN
 # https://docs.rapid7.com/insight-agent/virtualization/
 sudo rm -rf /opt/rapid7/ir_agent/components/bootstrap/common/bootstrap.cfg
 
-################################################################################
-### SOPHOS INSTALL #############################################################
-################################################################################
-
-
-# sudo /tmp/lessonly/sophos_install.sh
-
-# # unregister the AMI builder so new machines will register upon startup
-# sudo /opt/sophos-spl/base/bin/registerCentral --deregister
-
 ##############################
 ### CLAMAV
 #############################
