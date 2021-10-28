@@ -312,14 +312,14 @@ curl -o ./inspector_install.sh -O https://inspector-agent.amazonaws.com/linux/la
 sudo sh ./inspector_install.sh
 
 ################################################################################
-### SOPHOS INSTALL #############################################################
+### Rapid7 INSTALL #############################################################
 ################################################################################
 
-
-sudo /tmp/lessonly/sophos_install.sh
-
-# unregister the AMI builder so new machines will register upon startup
-sudo /opt/sophos-spl/base/bin/registerCentral --deregister
+# https://docs.rapid7.com/insight-agent/using-a-token
+chmod u+x  /tmp/lessonly/agent_installer.sh
+sudo  /tmp/lessonly/agent_installer.sh install --token us:$RAPID7_TOKEN
+# https://docs.rapid7.com/insight-agent/virtualization/
+sudo rm -rf /opt/rapid7/ir_agent/components/bootstrap/common/bootstrap.cfg
 
 ##############################
 ### CLAMAV

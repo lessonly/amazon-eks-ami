@@ -8,7 +8,6 @@
     "aws_access_key_id": "{{env `AWS_ACCESS_KEY_ID`}}",
     "aws_secret_access_key": "{{env `AWS_SECRET_ACCESS_KEY`}}",
     "aws_session_token": "{{env `AWS_SESSION_TOKEN`}}",
-    "sophos_install": "{{env `SOPHOS_INSTALL`}}",
     "binary_bucket_name": "amazon-eks",
     "binary_bucket_region": "us-west-2",
     "kubernetes_version": null,
@@ -35,7 +34,8 @@
     "launch_block_device_mappings_volume_size": "6",
     "ami_users": "736980385428,371750428594,832568320175,479474490486,005556125985,920179101245,470222443941,134813580289" ,
     "additional_yum_repos": "",
-    "sonobuoy_e2e_registry": ""
+    "sonobuoy_e2e_registry": "",
+    "rapid7_token": "{{env `RAPID7_TOKEN`}}"
   },
   "builders": [
     {
@@ -161,7 +161,8 @@
         "AWS_SECRET_ACCESS_KEY={{user `aws_secret_access_key`}}",
         "AWS_SESSION_TOKEN={{user `aws_session_token`}}",
         "CLEANUP_IMAGE={{user `cleanup_image`}}",
-        "SONOBUOY_E2E_REGISTRY={{user `sonobuoy_e2e_registry`}}"
+        "SONOBUOY_E2E_REGISTRY={{user `sonobuoy_e2e_registry`}}",
+        "RAPID7_TOKEN={{user `rapid7_token`}}"
       ]
     },
     {
