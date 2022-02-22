@@ -335,6 +335,8 @@ sudo  /tmp/lessonly/agent_installer.sh install --token us:$RAPID7_TOKEN
 sudo rm -rf /opt/rapid7/ir_agent/components/bootstrap/common/bootstrap.cfg
 
 # Disable auditd to allow Rapid7 Agent to work properly
+sed -i 's/RefuseManualStop=yes/RefuseManualStop=no/g' /usr/lib/systemd/system/auditd.service
+sudo systemctl daemon-reload
 sudo systemctl stop auditd
 sudo systemctl disable auditd
 chkconfig auditd off
