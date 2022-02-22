@@ -334,6 +334,11 @@ sudo  /tmp/lessonly/agent_installer.sh install --token us:$RAPID7_TOKEN
 # https://docs.rapid7.com/insight-agent/virtualization/
 sudo rm -rf /opt/rapid7/ir_agent/components/bootstrap/common/bootstrap.cfg
 
+# Disable auditd to allow Rapid7 Agent to work properly
+service auditd stop
+sudo systemctl disable auditd
+chkconfig auditd off
+
 ##############################
 ### CLAMAV
 #############################
