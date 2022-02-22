@@ -333,7 +333,6 @@ sudo sed -i 's/RefuseManualStop=yes/RefuseManualStop=no/g' /usr/lib/systemd/syst
 sudo systemctl daemon-reload
 sudo systemctl stop auditd
 sudo systemctl disable auditd
-chkconfig auditd off
 
 # https://docs.rapid7.com/insight-agent/using-a-token
 chmod u+x  /tmp/lessonly/agent_installer.sh
