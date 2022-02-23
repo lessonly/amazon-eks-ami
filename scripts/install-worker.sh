@@ -328,6 +328,12 @@ sudo sh ./inspector_install.sh
 ### Rapid7 INSTALL #############################################################
 ################################################################################
 
+# Disable auditd to allow Rapid7 Agent to work properly
+sudo sed -i 's/RefuseManualStop=yes/RefuseManualStop=no/g' /usr/lib/systemd/system/auditd.service
+sudo systemctl daemon-reload
+sudo systemctl stop auditd
+sudo systemctl disable auditd
+
 # https://docs.rapid7.com/insight-agent/using-a-token
 chmod u+x  /tmp/lessonly/agent_installer.sh
 sudo  /tmp/lessonly/agent_installer.sh install --token us:$RAPID7_TOKEN
