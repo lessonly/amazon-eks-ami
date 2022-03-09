@@ -59,8 +59,9 @@ sudo yum install -y \
     chrony \
     conntrack \
     curl \
-    jq \
     ec2-instance-connect \
+    ipvsadm \
+    jq \
     nfs-utils \
     amazon-ssm-agent \
     less \
@@ -69,7 +70,7 @@ sudo yum install -y \
     wget \
     kernel-devel \
     gcc \
-    ipvsadm
+    yum-plugin-versionlock
 
 # Remove the ec2-net-utils package, if it's installed. This package interferes with the route setup on the instance.
 if yum list installed | grep ec2-net-utils; then sudo yum remove ec2-net-utils -y -q; fi
@@ -103,7 +104,7 @@ fi
 ################################################################################
 
 # Disable weak ciphers
-echo -e "\nCiphers chacha20-poly1305@openssh.com,aes128-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com" | sudo tee -a /etc/ssh/sshd_config
+echo -e "\nCiphers aes128-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com" | sudo tee -a /etc/ssh/sshd_config
 sudo systemctl restart sshd.service
 
 ################################################################################
@@ -123,9 +124,6 @@ if [[ "$INSTALL_DOCKER" == "true" ]]; then
     sudo amazon-linux-extras enable docker
     sudo groupadd -fog 1950 docker
     sudo useradd --gid $(getent group docker | cut -d: -f3) docker
-
-    # install version lock to put a lock on dependecies
-    sudo yum install -y yum-plugin-versionlock
 
     # install runc and lock version
     sudo yum install -y runc-${RUNC_VERSION}
