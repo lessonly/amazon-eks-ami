@@ -14,7 +14,7 @@
     "kubernetes_build_date": null,
     "kernel_version": "",
     "docker_version": "20.10.13-2.amzn2",
-    "containerd_version": "1.4.13-2.amzn2.0.1",
+    "containerd_version": "1.4.13-3.amzn2",
     "runc_version": "1.0.3-2.amzn2",
     "cni_plugin_version": "v0.8.6",
     "pull_cni_from_github": "true",
@@ -35,6 +35,7 @@
     "ami_users": "736980385428,371750428594,832568320175,479474490486,005556125985,920179101245,470222443941,134813580289" ,
     "additional_yum_repos": "",
     "sonobuoy_e2e_registry": "",
+    "ami_regions": "",
     "rapid7_token": "{{env `RAPID7_TOKEN`}}"
   },
   "builders": [
@@ -75,6 +76,7 @@
           "delete_on_termination": true
         }
       ],
+      "ami_regions": "{{user `ami_regions`}}",
       "ssh_username": "{{user `ssh_username`}}",
       "ssh_interface": "{{user `ssh_interface`}}",
       "temporary_security_group_source_cidrs": "{{user `temporary_security_group_source_cidrs`}}",
