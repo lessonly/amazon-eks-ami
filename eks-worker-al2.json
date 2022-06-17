@@ -43,7 +43,6 @@
       "type": "amazon-ebs",
       "region": "{{user `aws_region`}}",
       "source_ami": "{{user `source_ami_id`}}",
-      "ami_regions": ["us-east-1"],
       "ami_users": "{{user `ami_users`}}",
       "snapshot_users": "{{user `ami_users`}}",
       "source_ami_filter": {
