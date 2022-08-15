@@ -36,7 +36,8 @@
     "additional_yum_repos": "",
     "sonobuoy_e2e_registry": "",
     "ami_regions": "",
-    "rapid7_token": "{{env `RAPID7_TOKEN`}}"
+    "rapid7_token": "{{env `RAPID7_TOKEN`}}",
+    "subnet_id": "{{env `SUBNET_ID`}}"
   },
   "builders": [
     {
