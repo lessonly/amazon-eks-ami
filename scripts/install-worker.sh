@@ -103,8 +103,6 @@ else
   echo "tsc as a clock source is not applicable, skipping."
 fi
 
-
-
 ################################################################################
 ### SSH ########################################################################
 ################################################################################
@@ -385,11 +383,9 @@ EOF
 sudo mv /tmp/release /etc/eks/release
 sudo chown -R root:root /etc/eks
 
-
 ################################################################################
 ### AWS Inspector agent INSTALL ################################################
 ################################################################################
-
 
 curl -o ./inspector_install.sh -O https://inspector-agent.amazonaws.com/linux/latest/install
 sudo sh ./inspector_install.sh
@@ -405,8 +401,8 @@ sudo systemctl stop auditd
 sudo systemctl disable auditd
 
 # https://docs.rapid7.com/insight-agent/using-a-token
-chmod u+x  /tmp/lessonly/agent_installer.sh
-sudo  /tmp/lessonly/agent_installer.sh install --token us:$RAPID7_TOKEN
+chmod u+x /tmp/lessonly/agent_installer.sh
+sudo /tmp/lessonly/agent_installer.sh install --token us:$RAPID7_TOKEN
 # https://docs.rapid7.com/insight-agent/virtualization/
 sudo rm -rf /opt/rapid7/ir_agent/components/bootstrap/common/bootstrap.cfg
 
@@ -417,14 +413,14 @@ sudo rm -rf /opt/rapid7/ir_agent/components/bootstrap/common/bootstrap.cfg
 sudo amazon-linux-extras install -y epel
 sudo yum -y install clamav-server clamav-data clamav-update clamav-filesystem clamav clamav-scanner-systemd clamav-devel clamav-lib clamav-server-systemd
 
-sudo  mkdir /var/log/clam
-sudo  chown clamscan:clamscan /var/log/clam
+sudo mkdir /var/log/clam
+sudo chown clamscan:clamscan /var/log/clam
 
 sudo cp /tmp/lessonly/clamav-logrotate.conf /etc/logrotate.d/clamav-scan.conf
 sudo cp /tmp/lessonly/clamav-scan.conf /etc/clamd.d/scan.conf
 
-sudo mkdir  /var/log/freshclam
-sudo chown  clamupdate:clamupdate /var/log/freshclam
+sudo mkdir /var/log/freshclam
+sudo chown clamupdate:clamupdate /var/log/freshclam
 
 sudo cp /tmp/lessonly/freshclam.conf /etc/freshclam.conf
 sudo cp /tmp/lessonly/freshclam-logrotate.conf /etc/logrotate.d/clamav-update
