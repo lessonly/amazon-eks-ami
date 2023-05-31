@@ -41,7 +41,6 @@
     "ssh_username": "ec2-user",
     "subnet_id": "{{env `SUBNET_ID`}}",
     "temporary_security_group_source_cidrs": null,
-    "vpc_id": "{{ env `VPC_ID`}}",
     "volume_type": "gp2"
   },
   "builders": [
@@ -98,7 +97,6 @@
         "creator": "{{user `creator`}}"
       },
       "subnet_id": "{{user `subnet_id`}}",
-      "vpc_id": "{{user `vpc_id`}}",
       "tags": {
         "Name": "{{user `ami_name`}}",
         "created": "{{timestamp}}",
