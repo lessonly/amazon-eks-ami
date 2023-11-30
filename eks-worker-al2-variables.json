@@ -16,9 +16,9 @@
     "containerd_version": "1.6.*",
     "creator": "{{env `USER`}}",
     "docker_version": "20.10.23-1.amzn2.0.1",
-    "encrypted": "false",
+    "encrypted": "true",
     "kernel_version": "",
-    "kms_key_id": "",
+    "kms_key_id": "a35a8348-eb82-4310-84ba-7f5da369d313",
     "launch_block_device_mappings_volume_size": "4",
     "pause_container_version": "3.5",
     "pull_cni_from_github": "true",
@@ -33,5 +33,5 @@
     "ssh_username": "ec2-user",
     "subnet_id": "",
     "temporary_security_group_source_cidrs": "",
-    "volume_type": "gp2"
+    "volume_type": "gp3"
 }
