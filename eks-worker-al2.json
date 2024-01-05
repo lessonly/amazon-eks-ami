@@ -2,11 +2,11 @@
   "_comment": "All template variables are enumerated here; and most variables have a default value defined in eks-worker-al2-variables.json",
   "variables": {
     "additional_yum_repos": null,
-    "ami_component_description": null,    
+    "ami_component_description": null,
     "ami_description": null,
     "ami_name": null,
     "ami_regions": null,
-    "ami_users": "736980385428,371750428594,832568320175,479474490486,005556125985,920179101245,470222443941,134813580289",
+    "ami_users": "832568320175",
     "arch": null,
     "associate_public_ip_address": null,
     "aws_access_key_id": null,
@@ -15,7 +15,7 @@
     "aws_session_token": null,
     "binary_bucket_name": null,
     "binary_bucket_region": null,
-    "cache_container_images": null,    
+    "cache_container_images": null,
     "cni_plugin_version": null,
     "containerd_version": null,
     "creator": null,
@@ -27,7 +27,7 @@
     "kubernetes_build_date": null,
     "kubernetes_version": null,
     "launch_block_device_mappings_volume_size": "4",
-    "pause_container_version": null,    
+    "pause_container_version": null,
     "pull_cni_from_github": "true",
     "rapid7_token": "{{env `RAPID7_TOKEN`}}",
     "remote_folder": null,
@@ -123,14 +123,15 @@
     },
     {
       "type": "shell",
-      "inline": ["mkdir -p /tmp/lessonly/"]
+      "inline": [
+        "mkdir -p /tmp/lessonly/"
+      ]
     },
     {
       "type": "file",
       "source": "{{template_dir}}/lessonly-files/",
       "destination": "/tmp/lessonly/"
     },
-
     {
       "type": "shell",
       "remote_folder": "{{ user `remote_folder`}}",
