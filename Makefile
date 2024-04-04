@@ -123,7 +123,11 @@ k8s: validate ## Build default K8s version of EKS Optimized AL2 AMI
 .PHONY: 1.27
 1.27: ## Build EKS Optimized AL2 AMI - K8s 1.27
 	$(MAKE) k8s kubernetes_version=1.27.1 kubernetes_build_date=2023-04-19 pull_cni_from_github=true
-	
+
+.PHONY: 1.28
+1.28: ## Build EKS Optimized AL2 AMI - K8s 1.28
+	$(MAKE) k8s kubernetes_version=1.28.5 kubernetes_build_date=2024-01-04 pull_cni_from_github=true
+
 .PHONY: clean
 clean:
 	rm *-manifest.json
