@@ -324,6 +324,12 @@ if [[ $KUBERNETES_VERSION == "1.20"* ]]; then
   echo $KUBELET_CONFIG_WITH_CSI_SERVICE_ACCOUNT_TOKEN_ENABLED > $TEMPLATE_DIR/kubelet-config.json
 fi
 
+# Enable Feature Gate for KubeletCredentialProviders in versions less than 1.28 since this feature flag was removed in 1.28.
+if vercmp $KUBERNETES_VERSION lt "1.28"; then
+  KUBELET_CONFIG_WITH_KUBELET_CREDENTIAL_PROVIDER_FEATURE_GATE_ENABLED=$(cat $TEMPLATE_DIR/kubelet-config.json | jq '.featureGates += {KubeletCredentialProviders: true}')
+  echo $KUBELET_CONFIG_WITH_KUBELET_CREDENTIAL_PROVIDER_FEATURE_GATE_ENABLED > $TEMPLATE_DIR/kubelet-config.json
+fi
+
 sudo mv $TEMPLATE_DIR/kubelet.service /etc/systemd/system/kubelet.service
 sudo chown root:root /etc/systemd/system/kubelet.service
 sudo mv $TEMPLATE_DIR/kubelet-config.json /etc/kubernetes/kubelet/kubelet-config.json
